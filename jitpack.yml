@@ -1,7 +1,8 @@
 jdk:
   - openjdk17
 before_install:
-  - chmod +x gradlew
+  - wget https://services.gradle.org/distributions/gradle-8.0-bin.zip -P /tmp
+  - unzip -d /tmp/gradle /tmp/gradle-8.0-bin.zip
+  - export PATH=$PATH:/tmp/gradle/gradle-8.0/bin
 install:
-  - ./gradlew :library:assembleRelease
-  - ./gradlew :library:publishToMavenLocal -Pgroup=com.github.zapupi -Pversion=$VERSION
+  - gradle :library:publishToMavenLocal
