@@ -1,5 +1,7 @@
 jdk:
   - openjdk17
 before_install:
-  - sdk install gradle 8.1.0
-  - sdk use gradle 8.1.0
+  - chmod +x gradlew
+install:
+  - ./gradlew :library:assembleRelease
+  - ./gradlew :library:publishToMavenLocal -Pgroup=com.github.zapupi -Pversion=$VERSION
