@@ -1,9 +1,5 @@
 jdk:
   - openjdk17
-env:
-  - GRADLE_VERSION=8.1.0
 before_install:
-  - sdk install gradle $GRADLE_VERSION
-  - sdk use gradle $GRADLE_VERSION
-build:
-  - gradle :library:assembleRelease :library:publishToMavenLocal
+  - sdk install gradle 8.1.0
+  - sdk use gradle 8.1.0
