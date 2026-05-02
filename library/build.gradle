@@ -17,6 +17,12 @@ android {
             minifyEnabled false
         }
     }
+
+    publishing {
+        singleVariant('release') {
+            withSourcesJar()
+        }
+    }
 }
 
 dependencies {
@@ -31,7 +37,7 @@ afterEvaluate {
             release(MavenPublication) {
                 from components.release
                 groupId = 'com.github.zapupi'
-                artifactId = 'zapupi-android'
+                artifactId = 'zapupi-gateway'
                 version = '1.0.0'
             }
         }
